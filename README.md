@@ -19,7 +19,7 @@ Você não precisa começar criando uma funcionalidade grande. Uma reprodução 
 - [Como reportar um bug](guias/reportar-um-bug.md)
 - [Revisão de privacidade antes do envio](guias/privacidade-antes-do-push.md)
 - [Ideias de contribuições em interfaces web](guias/ideias-front-end.md)
-- [Dois exemplos reais de contribuição](exemplos/contribuicoes-reais.md)
+- [Três exemplos reais de contribuição](exemplos/contribuicoes-reais.md)
 
 ## Pequeno glossário
 

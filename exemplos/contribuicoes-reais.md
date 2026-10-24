@@ -1,6 +1,6 @@
-# Dois exemplos reais de contribuição
+# Três exemplos reais de contribuição
 
-Registrados em 24/10/2026. Ambos são pull requests propostas; a abertura não significa que os mantenedores aceitaram ou publicaram a mudança. Consulte os links para o estado atual.
+Registrados em 24/10/2026. Os três são pull requests propostos; a abertura não significa que os mantenedores aceitaram ou publicaram a mudança. Consulte os links para o estado atual.
 
 ## OGL: declarar chamadas que o runtime já aceita
 
@@ -21,6 +21,16 @@ Na branch v2, `lock()` bloqueia os gestos tratados pelo Lenis, mas não toda rol
 A documentação proposta diferencia os dois comportamentos e mostra como ocultar/restaurar o overflow do elemento de rolagem quando uma integração de modal precisar disso. O comportamento foi conferido no navegador e no código, sem mudar o runtime.
 
 **Lição:** documentação é uma contribuição técnica quando corrige uma expectativa incorreta com evidência reproduzível.
+
+## OGL: remover apenas o callback responsável pelo descarte
+
+**Proposta:** [oframe/ogl #266](https://github.com/oframe/ogl/pull/266).
+
+`InstancedMesh.removeFrustumCull()` chamava `offBeforeRender`, um método inexistente na classe `Mesh`. A chamada falhava antes de restaurar as instâncias que haviam sido descartadas da renderização.
+
+A correção remove o callback específico da lista existente e preserva outros callbacks. Três testes passaram depois de reproduzir a falha: restauração das matrizes e contagem, remoção repetida sem afetar outros callbacks e restauração dos dados de lightmap. São testes de lógica em Node, sem renderização WebGL.
+
+**Lição:** um bug encontrado durante uma investigação pode merecer uma correção própria. Esta proposta não afirma resolver a discussão mais ampla sobre o descarte global do renderer.
 
 ## O que foi evitado
 
